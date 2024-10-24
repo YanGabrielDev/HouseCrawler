@@ -13,14 +13,14 @@ export const postBody = {
         "selectedHouses": [],
         "location": {
             "coordinate": {
-                "lat": -19.9383997,
-                "lng": -44.0044394
+                "lat": -19.919052,
+                "lng": -43.9386685
             },
             "viewport": {
-                "east": -43.992766426367204,
-                "north": -19.928253112265814,
-                "south": -19.948545635954684,
-                "west": -44.01611237363283
+                "east": -43.84528471093749,
+                "north": -19.837851150116368,
+                "south": -20.000211169759673,
+                "west": -44.03205228906249
             },
             "neighborhoods": [],
             "countryCode": "BR"
@@ -40,14 +40,18 @@ export const postBody = {
             "area": {
                 "range": {}
             },
-            "houseTypes": [],
+            "houseTypes": [
+                "APARTMENT"
+            ],
             "amenities": [],
             "installations": [],
             "bathrooms": {
                 "range": {}
             },
             "bedrooms": {
-                "range": {}
+                "range": {
+                    "min": 2
+                }
             },
             "parkingSpace": {
                 "range": {}
@@ -66,10 +70,10 @@ export const postBody = {
         "order": "DESC"
     },
     "pagination": {
-        "pageSize": 50,
+        "pageSize": 500,
         "offset": 0
     },
-    "slug": "vila-oeste-belo-horizonte-mg-brasil",
+    "slug": "belo-horizonte-mg-brasil",
     "fields": [
         "id",
         "coverImage",
@@ -105,7 +109,7 @@ export const postBody = {
     ],
     "locationDescriptions": [
         {
-            "description": "vila-oeste-belo-horizonte-mg-brasil"
+            "description": "belo-horizonte-mg-brasil"
         }
     ]
 }
