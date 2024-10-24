@@ -2,6 +2,7 @@ import { listHouses } from "../api/quinto-andar-api.js"
 import { promises as fs } from 'fs'; // Usar promises do fs
 import { getFileData } from "../utils/getFileData.js";
 
+
 export const housesCrawler = async () => {
     try {
         const houses = await listHouses();
