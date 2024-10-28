@@ -1,14 +1,16 @@
 import { listHouses } from "../api/quinto-andar-api.js"
-import { promises as fs } from 'fs'; // Usar promises do fs
+import { promises as fs } from 'fs';
 import { getFileData } from "../utils/getFileData.js";
 
-
+/**
+ * função principal do crawler que faz a busca dos apartamentos
+ * @returns 
+ */
 export const housesCrawler = async () => {
     try {
         const houses = await listHouses();
         const savedHouses = await getFileData('houses.json')
         const parsedSavedHouses = JSON.parse(savedHouses)
-        // Converte os dados para JSON string
         const housesJson = JSON.stringify(houses);
 
         if (savedHouses) {
@@ -16,7 +18,6 @@ export const housesCrawler = async () => {
             return
         }
 
-        // Escreve o arquivo houses.json
         if (housesJson) {
             await fs.writeFile('houses.json', housesJson);
             console.log(`${houses.length} apartamentos encontrados`)
@@ -29,6 +30,12 @@ export const housesCrawler = async () => {
     }
 };
 
+/**
+ * Verifica se algum apartamento novo foi encontrado na busca
+ * @param {Array} houses Array de apartamentos encontrados na api
+ * @param {string} housesJson Json de apartamentos encontrados na api
+ * @param {Array} parsedSavedHouses Array de apartamentos armazenados na ultima busca
+ */
 const handlCheckSavedHouses = async ({ houses = [], housesJson = '', parsedSavedHouses = [] }) => {
     const newHouses = houses.filter(house => !parsedSavedHouses.some(savedHouses => savedHouses._id === house._id)) || []
     if (newHouses.length > 0) {
