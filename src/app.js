@@ -17,7 +17,7 @@
 //     app.server.emit('request', req, res);
 // };
 
-import routes from "./routes";
+import routes from "./routes.js";
 
 async function app(
     instance,
