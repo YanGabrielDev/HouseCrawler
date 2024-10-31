@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import routes from "../src/app";
+import routes from "../src/app.js";
 
 dotenv.config();
 
