@@ -10,6 +10,8 @@ export const getFileData = async (path = '') => {
             return data
         })
     } catch (error) {
+        await fs.writeFile('houses.json', '');
+
         console.log("Arquivo não existente!");
         return null
     }
